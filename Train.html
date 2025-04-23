@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myTour- Train & Cab Booking</title>
+    <link rel="stylesheet" href="Train.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- <img src="logo2-Photoroom.png" alt="TravelEase Logo" class="logo"> -->
+                    <h1 class="logo-text"><a href="MyTour.html">myTour</a></h1>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="MyTour.html" class="nav-link active">Flight</a></li>
+                        <li><a href="Hotels.html" class="nav-link">Hotels</a></li>
+                        <li><a href="Bus.html" class="nav-link">Bus</a></li>
+                        <li><a href="Train.html" class="nav-link">Cabs</a></li>
+                        <li><a href="Train.html" class="nav-link">Train</a></li>
+                        <li><a href="Holidays.html" class="nav-link">Holidays</a></li>
+                    </ul>
+                </nav>
+                <!-- <div class="auth-buttons">
+                    <button class="btn btn-outline" id="login-btn">Login</button>
+                    <button class="btn btn-primary" id="signup-btn">Sign Up</button>
+                </div> -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Journey, Our Priority</h1>
+                <p class="hero-subtitle">Book trains and cabs seamlessly for your perfect travel experience</p>
+                <div class="hero-cta">
+                    <a href="#booking" class="btn btn-primary btn-lg">Book Now</a>
+                    <a href="#offers" class="btn btn-outline btn-lg">View Offers</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Booking Tabs Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-tabs">
+                    <button class="tab-btn active" data-tab="train-tab">
+                        <i class="fas fa-train"></i> Train Tickets
+                    </button>
+                    <button class="tab-btn" data-tab="cab-tab">
+                        <i class="fas fa-taxi"></i> Cab Booking
+                    </button>
+                </div>
+
+                <!-- Train Booking Tab -->
+                <div class="tab-content active" id="train-tab">
+                    <form id="train-booking-form" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="train-from">From</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" id="train-from" placeholder="Enter city or station" required>
+                                    <div class="suggestions" id="from-suggestions"></div>
+                                </div>
+                            </div>
+                            <button type="button" class="swap-btn" id="swap-stations">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                            <div class="form-group">
+                                <label for="train-to">To</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" id="train-to" placeholder="Enter city or station" required>
+                                    <div class="suggestions" id="to-suggestions"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="train-date">Travel Date</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <input type="text" id="train-date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="train-class">Class</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-chair"></i>
+                                    <select id="train-class" required>
+                                        <option value="">Select class</option>
+                                        <option value="SL">Sleeper (SL)</option>
+                                        <option value="3A">AC 3 Tier (3A)</option>
+                                        <option value="2A">AC 2 Tier (2A)</option>
+                                        <option value="1A">AC First Class (1A)</option>
+                                        <option value="CC">Chair Car (CC)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="train-passengers">Passengers</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-users"></i>
+                                    <select id="train-passengers" required>
+                                        <option value="1">1 Passenger</option>
+                                        <option value="2">2 Passengers</option>
+                                        <option value="3">3 Passengers</option>
+                                        <option value="4">4 Passengers</option>
+                                        <option value="5">5 Passengers</option>
+                                        <option value="6">6 Passengers</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="btn btn-primary btn-block">Search Trains</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Cab Booking Tab -->
+                <div class="tab-content" id="cab-tab">
+                    <form id="cab-booking-form" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ride Type</label>
+                                <div class="ride-type-selector">
+                                    <label class="ride-type active">
+                                        <input type="radio" name="ride-type" value="city" checked>
+                                        <i class="fas fa-building"></i>
+                                        <span>City Ride</span>
+                                    </label>
+                                    <label class="ride-type">
+                                        <input type="radio" name="ride-type" value="outstation">
+                                        <i class="fas fa-road"></i>
+                                        <span>Outstation</span>
+                                    </label>
+                                    <label class="ride-type">
+                                        <input type="radio" name="ride-type" value="rental">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Rental</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cab-pickup">Pickup Location</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" id="cab-pickup" placeholder="Enter pickup location" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cab-destination">Destination</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" id="cab-destination" placeholder="Enter destination" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cab-date">Date</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <input type="text" id="cab-date" placeholder="Select date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cab-time">Time</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-clock"></i>
+                                    <input type="text" id="cab-time" placeholder="Select time" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cab-type">Cab Type</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-taxi"></i>
+                                    <select id="cab-type" required>
+                                        <option value="">Select cab type</option>
+                                        <option value="mini">Mini</option>
+                                        <option value="sedan">Sedan</option>
+                                        <option value="suv">SUV</option>
+                                        <option value="luxury">Luxury</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="btn btn-primary btn-block">Book Cab</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Train Results Section -->
+    <section class="results-section" id="train-results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Available Trains</h2>
+                <p class="section-subtitle">Select from available trains for your journey</p>
+            </div>
+            <div class="results-container" id="train-results-container">
+                <!-- Train results will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cab Results Section -->
+    <section class="results-section" id="cab-results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Available Cabs</h2>
+                <p class="section-subtitle">Select from available cab options</p>
+            </div>
+            <div class="results-container" id="cab-results-container">
+                <!-- Cab results will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Trains Section -->
+    <section class="popular-section" id="trains">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Train Routes</h2>
+                <p class="section-subtitle">Explore the most popular train routes across the country</p>
+            </div>
+            <div class="popular-grid">
+                <div class="popular-card">
+                    <div class="popular-image">
+                        <img src="https://wallpapers.com/images/featured/best-travel-background-04ml2h9wywaoo6ei.jpg">
+                        <div class="popular-overlay">
+                            <span class="popular-price">From ₹1,245</span>
+                        </div>
+                    </div>
+                    <div class="popular-content">
+                        <h3 class="popular-title">Delhi to Mumbai</h3>
+                        <div class="popular-info">
+                            <div class="info-item">
+                                <i class="fas fa-train"></i>
+                                <span>Rajdhani Express</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>16h 35m</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Book Now</button>
+                    </div>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-image">
+                        <img src="https://images.unsplash.com/photo-1584467541268-b040f83be3fd?q=80&w=1000&auto=format&fit=crop" alt="Chennai to Bangalore">
+                        <div class="popular-overlay">
+                            <span class="popular-price">From ₹845</span>
+                        </div>
+                    </div>
+                    <div class="popular-content">
+                        <h3 class="popular-title">Chennai to Bangalore</h3>
+                        <div class="popular-info">
+                            <div class="info-item">
+                                <i class="fas fa-train"></i>
+                                <span>Shatabdi Express</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5h 15m</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Book Now</button>
+                    </div>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-image">
+                        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=1000&auto=format&fit=crop" alt="Kolkata to Delhi">
+                        <div class="popular-overlay">
+                            <span class="popular-price">From ₹1,550</span>
+                        </div>
+                    </div>
+                    <div class="popular-content">
+                        <h3 class="popular-title">Kolkata to Delhi</h3>
+                        <div class="popular-info">
+                            <div class="info-item">
+                                <i class="fas fa-train"></i>
+                                <span>Duronto Express</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>17h 20m</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Book Now</button>
+                    </div>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-image">
+                        <img src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg">
+                        <div class="popular-overlay">
+                            <span class="popular-price">From ₹1,050</span>
+                        </div>
+                    </div>
+                    <div class="popular-content">
+                        <h3 class="popular-title">Mumbai to Goa</h3>
+                        <div class="popular-info">
+                            <div class="info-item">
+                                <i class="fas fa-train"></i>
+                                <span>Tejas Express</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>8h 30m</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cab Services Section -->
+    <section class="cab-services-section" id="cabs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Cab Services</h2>
+                <p class="section-subtitle">Choose from a variety of cab options for your travel needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="service-title">City Rides</h3>
+                    <p class="service-description">Convenient and affordable rides within the city for your daily commute.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Available 24/7</li>
+                        <li><i class="fas fa-check"></i> Multiple car options</li>
+                        <li><i class="fas fa-check"></i> Cashless payments</li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm">Book Now</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3 class="service-title">Outstation</h3>
+                    <p class="service-description">Comfortable intercity travel with experienced drivers for long journeys.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> One-way & round trips</li>
+                        <li><i class="fas fa-check"></i> Experienced drivers</li>
+                        <li><i class="fas fa-check"></i> Flexible booking</li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm">Book Now</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="service-title">Hourly Rentals</h3>
+                    <p class="service-description">Rent a cab by the hour for multiple stops and errands around the city.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Packages from 4 to 12 hours</li>
+                        <li><i class="fas fa-check"></i> Multiple stops allowed</li>
+                        <li><i class="fas fa-check"></i> No surge pricing</li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm">Book Now</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-suitcase"></i>
+                    </div>
+                    <h3 class="service-title">Airport Transfers</h3>
+                    <p class="service-description">Reliable airport pickups and drops with flight tracking and waiting time.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Flight tracking</li>
+                        <li><i class="fas fa-check"></i> 24/7 availability</li>
+                        <li><i class="fas fa-check"></i> Meet & greet service</li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers-section" id="offers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Exclusive Offers</h2>
+                <p class="section-subtitle">Save big with our limited-time offers and discounts</p>
+            </div>
+            <div class="offers-slider">
+                <div class="offer-card">
+                    <div class="offer-badge">SAVE 15%</div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">First-Time Train Booking</h3>
+                        <p class="offer-description">Use code <strong>TRAIN15</strong> on your first train booking to get 15% off (up to ₹150).</p>
+                        <button class="btn btn-primary btn-sm">Book Now</button>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">SAVE 20%</div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Weekend Cab Rides</h3>
+                        <p class="offer-description">Use code <strong>WEEKEND20</strong> for weekend cab bookings to get 20% off (up to ₹200).</p>
+                        <button class="btn btn-primary btn-sm">Book Now</button>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">FLAT ₹500 OFF</div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Outstation Cab Booking</h3>
+                        <p class="offer-description">Use code <strong>OUTSTATION500</strong> on outstation cab bookings above ₹2000.</p>
+                        <button class="btn btn-primary btn-sm">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="offers-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Read testimonials from our satisfied customers</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The train booking process was incredibly smooth. I got instant confirmation and the journey was comfortable. Will definitely use TravelEase again!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Sharma" class="author-image">
+                        <div class="author-info">
+                            <h4 class="author-name">Rahul Sharma</h4>
+                            <p class="author-title">Business Traveler</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"I booked a cab for airport transfer and the driver was punctual and professional. The cab was clean and comfortable. Great service overall!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel" class="author-image">
+                        <div class="author-info">
+                            <h4 class="author-name">Priya Patel</h4>
+                            <p class="author-title">Frequent Traveler</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The outstation cab service was excellent. The driver was knowledgeable about the routes and made our family trip very comfortable and enjoyable."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Vikram Singh" class="author-image">
+                        <div class="author-info">
+                            <h4 class="author-name">Vikram Singh</h4>
+                            <p class="author-title">Family Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-section">
+        <div class="container">
+            <div class="app-container">
+                <div class="app-content">
+                    <h2 class="app-title">Download Our Mobile App</h2>
+                    <p class="app-description">Get the TravelEase app for faster bookings, exclusive mobile-only deals, and real-time journey updates.</p>
+                    <div class="app-features">
+                        <div class="app-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Faster Bookings</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-tag"></i>
+                            <span>Exclusive Offers</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-bell"></i>
+                            <span>Real-time Updates</span>
+                        </div>
+                    </div>
+                    <div class="app-buttons">
+                        <a href="#" class="app-button">
+                            <i class="fab fa-google-play"></i>
+                            <div class="app-button-text">
+                                <span class="app-button-small">GET IT ON</span>
+                                <span class="app-button-large">Google Play</span>
+                            </div>
+                        </a>
+                        <a href="#" class="app-button">
+                            <i class="fab fa-apple"></i>
+                            <div class="app-button-text">
+                                <span class="app-button-small">DOWNLOAD ON THE</span>
+                                <span class="app-button-large">App Store</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="app-image">
+                    <img src="https://i.imgur.com/JVjoMkR.png" alt="TravelEase Mobile App">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Have questions? We're here to help!</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Address</h3>
+                            <p>123 Travel Street, Tech Park<br>Bangalore, Karnataka 560001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 1800 123 4567<br>+91 9876 543 210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>support@travelease.com<br>info@travelease.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Name</label>
+                                <input type="text" id="contact-name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" placeholder="Your message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <!-- <img src="logo.svg" alt="TravelEase Logo" class="logo"> -->
+                        <h2 class="footer-logo-text">myTour</h2>
+                    </div>
+                    <p class="footer-description">Your one-stop solution for all your travel needs. Book trains and cabs with ease and enjoy a seamless travel experience.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="MyTour.html">Flight</a></li>
+                        <li><a href="Hotels.html">Hotels</a></li>
+                        <li><a href="Bus.html">Bus</a></li>
+                        <li><a href="Train.html">Cab</a></li>
+                        <li><a href="Holidays.html">Holidays</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Train Booking</a></li>
+                        <li><a href="#">City Rides</a></li>
+                        <li><a href="#">Outstation Cabs</a></li>
+                        <li><a href="#">Hourly Rentals</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Refund Status</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">©myTour. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>We accept:</span>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 class="modal-title">Login to Your Account</h2>
+            <form id="login-form" class="modal-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div class="modal-footer">
+                    <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 class="modal-title">Create an Account</h2>
+            <form id="signup-form" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signup-firstname">First Name</label>
+                        <input type="text" id="signup-firstname" placeholder="First name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-lastname">Last Name</label>
+                        <input type="text" id="signup-lastname" placeholder="Last name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                <div class="modal-footer">
+                    <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="booking-success">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="modal-title">Booking Confirmed!</h2>
+                <p class="booking-message">Your booking has been confirmed successfully.</p>
+                <div class="booking-details" id="booking-details">
+                    <!-- Booking details will be populated here -->
+                </div>
+                <button class="btn btn-primary btn-block" id="close-booking-modal">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Processing your request...</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="Trainscript.js"></script>
+</body>
+</html>

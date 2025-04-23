@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Honeymoon Packages</title>
+   <!----------Font Awesom Link-------------->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!----------Font Awesom Link-------------->
+ 
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f8f8;
+      /* padding: 20px; */
+      color: #222;
+    }
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    color: black;
+}
+.container{
+    padding: 10px 10%;
+ }
+ 
+ .logo{
+    height: 55px;
+    width: 140px;
+    margin-left: 200px;
+ }  
+ 
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    cursor: pointer;
+}
+nav ul li:hover {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+ul span{
+    font-size: 18px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    
+}
+.fa {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: black;
+    
+ }
+ 
+ .fa:hover{
+    color: rgb(18,119,226);
+    box-shadow: #007bff;
+ }
+ 
+ .a{
+    color: black;
+    text-decoration: none;
+ }
+ span a:hover{
+    color: rgb(18,119,226);
+ }
+.login-btn {
+    background: white;
+    color: #007bff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: url('https://media.easemytrip.com/media/Deal/DL638076662660687590/SightSeeing/SightSeeingLjCfNR.jpg') no-repeat center center/cover;
+    color: white;
+}
+.banner{
+    padding-top: 250px ;
+}
+.search-bar {
+    display: flex;
+    border-radius: 5%;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.search-bar h4{
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    margin-right: 10px;
+    background-color: white;
+    color: #000;
+}
+
+.search-bar input, .search-bar select {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.search-bar button {
+    padding: 10px;
+    background: #042d69;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: -10px;
+    margin-top: -1.75px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    /* border: 1px solid #ccc; */
+    
+}
+.search-bar button:hover {
+    background: linear-gradient(90deg, #0072ff, #0056b3);
+    transition: background 0.3s ease;
+    color: white;
+}
+/* ----------------------------------------------------------------- */
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+
+    }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: #0077cc;
+      margin-bottom: 10px;
+
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      align-items: center;
+      margin-left: 20px;
+      margin-right: 20px;
+    
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    select, input[type=range], button {
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+    .button-group button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button-group button:hover {
+      background-color: #0056b3;
+    }
+
+    .slider-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+        justify-content: center;
+    }
+
+    .package-card {
+      background-color: white;
+      width: 300px;
+     border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .package-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-image {
+      position: relative;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .duration-tag {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: #333;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .card-content h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .card-content p {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .icons div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pricing {
+      padding: 0 16px 16px 16px;
+      border-top: 1px solid #eee;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      color: rgb(18,119,226);
+      font-weight: bold;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .button {
+      margin-top: 10px;
+      background-color:rgb(18,119,226);;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background: linear-gradient(90deg, #0072ff, #0056b3);
+    transition: background 0.3s ease;
+    color: white;
+    }
+
+    .emi {
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .filters {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .package-container {
+        justify-content: center;
+      }
+    }
+    /* ----------------------------------------------------------------- */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 20px;
+    }
+    footer h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    footer a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* footer p {
+      margin: 0;
+    } */
+    footer h2 {
+      margin: 0;
+    }
+    
+  </style>
+</head>
+<body>
+    <header>
+        <div>   <a href="MyTour.html"><img class="logo" src="logo2-Photoroom.png"></a> </div>
+        <nav>
+            <ul class="categories">
+                <span><a href="MyTour.html" class="a"><i class="fa fa-plane"></i><br>Flight</a></span>
+                <span><a href="Hotels.html"class="a"><i class="fa fa-hotel"></i><br>Hotels</a></span>
+                <span><a href="Bus.html" class="a"><i class="fa fa-bus"></i><br>Bus</a></span>
+                <span><a href="Train.html" class="a"><i class="fa fa-car"></i><br>Cabs</a></span>
+                <span><a href="Train.html" class="a"><i class="fa fa-train"></i><br>Train</a></span>
+                <span><a href="Holidays.html" class="a"><i class="fa fa-gift"></i><br>Holidays</a></span>
+            </ul>
+        </nav>
+        <!-- <button class="login-btn">Login or Signup</button> -->
+    </header>
+    <section class="hero">
+        <div class="banner">
+            <!-- <h1>End of Season Sale</h1>
+            <p>Extended Till 31st March</p> -->
+        </div>
+         <div class="search-bar">
+            <h4>Honeymoon</h4>
+             <button>Go</button>
+        </div>
+    </section>
+    <!-- ----------------------------------------------------------------------- -->
+
+  <!-- <div class="breadcrumb">Home > Holidays > Kashmir</div> -->
+  <h2>Honeymoon Tour Packages</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter-group">
+      <label>From City</label>
+      <select>
+        <option>New Delhi</option>
+        <option>Mumbai</option>
+        <option>Bangalore</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Sorted By</label>
+      <select>
+        <option>Select</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Price</label>
+      <div class="slider-group">
+        ₹<span id="priceMin">15199</span>
+        <input type="range" min="15000" max="60000" value="15199" oninput="document.getElementById('priceMin').innerText = this.value">
+        ₹53001
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>Duration</label>
+      <div class="slider-group">
+        <span id="durMin">3</span>N
+        <input type="range" min="3" max="7" value="3" oninput="document.getElementById('durMin').innerText = this.value">
+        7N
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>Package Type</label>
+      <div class="button-group">
+        <button>With Flights</button>
+        <button>Without Flights</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Package Cards -->
+  <div class="package-container">
+    <!-- Card 1 -->
+    <div class="package-card">
+      <div class="card-image">
+        <img src="https://media.easemytrip.com/media/Deal/DL638359033936246781/SightSeeing/SightSeeingf5AvRi.jpg" alt="Andaman">
+        <div class="duration-tag">5 Nights</div>
+      </div>
+      <div class="card-content">
+        <h3>Enjoy Honeymoon in Andaman</h3>
+        <p>3N Port Blair|2N Havelok Island</p>
+        <div class="icons">
+          <div>🏨<span>Hotel</span></div>
+          <div>🗺️<span>Sightseeing</span></div>
+          <div>🚗<span>Transfer</span></div>
+          <div>🍽️<span>Meal</span></div>
+          <div>✈️<span>Flight</span></div>
+        </div>
+      </div>
+      <div class="pricing">
+        <div class="old-price">₹ 41,999</div>
+        <div class="price">  ₹ 38,999</div>
+        <button class="button">Book Now</button>
+        <div class="emi">No Cost EMI Starts from ₹  6,256</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="package-card">
+      <div class="card-image">
+        <img src="https://media.easemytrip.com/media/Deal/DL637677550468935184/SightSeeing/SightSeeingbc1ADa.jpg" alt="Manali">
+        <div class="duration-tag">4 Nights</div>
+      </div>
+      <div class="card-content">
+        <h3>Unforgettable Honeymoon with Photo Sh..</h3>
+        <p>4N Manali</p>
+        <div class="icons">
+          <div>🏨<span>Hotel</span></div>
+          <div>🗺️<span>Sightseeing</span></div>
+          <div>🚗<span>Transfer</span></div>
+          <div>🍽️<span>Meal</span></div>
+          <div>✈️<span>Flight</span></div>
+        </div>
+      </div>
+      <div class="pricing">
+        <div class="old-price"> ₹ 21,999</div>
+        <div class="price"> ₹ 19,999</div>
+        <button class="button">Book Now</button>
+        <div class="emi">No cost EMI from ₹ 4,090</div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="package-card">
+      <div class="card-image">
+        <img src="https://media.easemytrip.com/media/Deal/DL638358346676823504/SightSeeing/SightSeeingHzPQ4K.jpg" alt="Himachal">
+        <div class="duration-tag">5 Nights</div>
+      </div>
+      <div class="card-content">
+        <h3>Honeymoon in Himachal</h3>
+        <p>2N Shimla| 3N Manali</p>
+        <div class="icons">
+          <div>🏨<span>Hotel</span></div>
+          <div>🗺️<span>Sightseeing</span></div>
+          <div>🚗<span>Transfer</span></div>
+          <div>🍽️<span>Meal</span></div>
+          <div>✈️<span>Flight</span></div>
+        </div>
+      </div>
+      <div class="pricing">
+        <div class="old-price">₹ 26,999</div>
+        <div class="price">₹ 23,999</div>
+        <button class="button">Book Now</button>
+        <div class="emi">No Cost EMI Starts from ₹ 2,923</div>
+      </div>
+    </div>
+    <!-- Card 4-->
+    <div class="package-card">
+        <div class="card-image">
+          <img src="https://media.easemytrip.com/media/Deal/DL637678239964302614/SightSeeing/SightSeeingqU8ex6.jpg" alt="Shimla">
+          <div class="duration-tag">2 Nights</div>
+        </div>
+        <div class="card-content">
+          <h3>Fun-Filled Shimla </h3>
+          <p>2N Shimla</p>
+          <div class="icons">
+            <div>🏨<span>Hotel</span></div>
+            <div>🗺️<span>Sightseeing</span></div>
+            <div>🚗<span>Transfer</span></div>
+            <div>🍽️<span>Meal</span></div>
+            <div>✈️<span>Flight</span></div>
+          </div>
+        </div>
+        <div class="pricing">
+          <div class="old-price"> ₹ 14,999</div>
+          <div class="price">₹ 11,950</div>
+          <button class="button">Book Now</button>
+          <div class="emi">No Cost EMI Starts from  ₹ 2,690</div>
+        </div>
+      </div>
+  
+ <!-- ------------------------ -->
+<footer>
+  <h2>Honeymoon: Where Love Begins its Journey </h2>
+  <p>Celebrate the start of forever with a dreamy Honeymoon Escape designed just for two. From romantic beachfront villas to serene mountain hideaways, every destination sets the perfect stage for love to bloom. With intimate experiences, breathtaking views, and unforgettable moments, let your first chapter together be as magical as your bond.</p>
+
+    <p>&copy;Honeymoon Tourism. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

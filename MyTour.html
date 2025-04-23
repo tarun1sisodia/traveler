@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myTour</title>
+  <!----------Font Awesom Link-------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!----------Font Awesom Link-------------->
+
+<!---------------------Bootstrap 5 cdn link-------------------------------->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<!---------------------Bootstrap 5 cdn link-------------------------------->
+
+  <!--------------Font Style Link----------------------->
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <!--------------Font Style Link----------------------->
+
+  
+  <!---------------------Google Icons link------------------------------------->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!---------------------Google Icons link------------------------------------->
+
+  <!-----------CSS Stylesheet link-------------->
+  <link rel="stylesheet" href="style.css">
+  <!-----------CSS Stylesheet link-------------->
+
+
+</head>
+<!----------------------Header Start---------------------------------------->
+<body>
+  <div class="body">
+        
+    <div class="container">
+        <nav>
+            <!-- logo  -->
+         <div>   <a href="#"><img class="logo" src="logo2-Photoroom.png"></a> </div>
+            <ul>
+                <li>
+                    <!-- <a href="#">Home</a> -->
+                </li>
+                <li>
+                    <!-- <a href="#">Flight</a> -->
+                </li>
+                <li>
+                    <!-- <a href="#">Hotels</a> -->
+                </li>
+                <li>
+                    <!-- <a href="#">Trains</a> -->
+                </li>
+                <li>
+                    <!-- <a href="#">Bus</a> -->
+                </li>
+                
+              
+                <li>
+                    <!-- <a href="#"></a> -->
+                </li>
+
+            </ul>
+            <!-- login button -->
+                <div class="nav-button">
+                          <a href="login.html"><button class="btn btn-primary">Login</button></a>
+                </div>
+        </nav>
+   
+        <!-- main nav -->
+    <div class="data">
+        <div class="categories">
+          <span><a href="MyTour.html" class="a"><i class="fa fa-plane"></i><br>Flight</a></span>
+          <span><a href="Hotels.html"class="a"><i class="fa fa-hotel"></i><br>Hotels</a></span>
+          <span><a href="Bus.html" class="a"><i class="fa fa-bus"></i><br>Bus</a></span>
+          <span><a href="Train.html" class="a"><i class="fa fa-car"></i><br>Cabs</a></span>
+          <span><a href="Train.html" class="a"><i class="fa fa-train"></i><br>Train</a></span>
+          <span><a href="Holidays.html" class="a"><i class="fa fa-gift"></i><br>Holidays</a></span>
+        
+        </div>
+        <div class="subcategory">
+          <div class="metadata">
+            <span class="selectype-metadata"><label><input type="radio" name="trip1" checked> One Way</label></span>
+            <span class="selectype-metadata"><label><input type="radio" name="trip1"> TRIP</label></span>
+            <span class="selectype-metadata"><label><input type="radio" name="trip1"> MULTI CITY</label></span>
+        
+          </div>
+  
+          <div class="flight-search-outer">
+            <div class="flight-search">
+
+                 <div class="flight" >
+                
+                    <div>
+                      <div class="city-display" id="selectedCity">
+                        <h1>From</h1>
+                        <div id="flight1">
+                        <h2 id="fromCity">Mumbai, India</h2>
+                        <h4 id="fromAirport">Chhatrapati Shivaji International Airport</h4>
+                        <h5>Mumbai, Maharashtra</h5>
+                      </div>
+                    </div>
+                </div>
+             </div>
+ <!-- ---------------------------------------------------------------- -->
+          <div class="dropdown-content" id="cityDropdown">
+            <input type="text" id="search" placeholder="Search city...">
+ <div class="city" data-city="Delhi, India" data-airport="Indira Gandhi International Airport" data-location="Delhi, India">Delhi, India - Indira Gandhi International Airport</div>
+  <div class="city" data-city="Bangalore, India" data-airport="Kempegowda International Airport" data-location="Bangalore, Karnataka">Bangalore, India - Kempegowda International Airport</div>
+  <div class="city" data-city="Chennai, India" data-airport="Chennai International Airport" data-location="Chennai, Tamil Nadu">Chennai, India - Chennai International Airport</div>
+  <div class="city" data-city="Hyderabad, India" data-airport="Rajiv Gandhi International Airport" data-location="Hyderabad, Telangana">Hyderabad, India - Rajiv Gandhi International Airport</div>
+  <div class="city" data-city="Kolkata, India" data-airport="Netaji Subhash Chandra Bose International Airport" data-location="Kolkata, West Bengal">Kolkata, India - Netaji Subhash Chandra Bose International Airport</div>
+  <div class="city" data-city="Pune, India" data-airport="Pune International Airport" data-location="Pune, Maharashtra">Pune, India - Pune International Airport</div>
+  <div class="city" data-city="Jaipur, India" data-airport="Jaipur International Airport" data-location="Jaipur, Rajasthan">Jaipur, India - Jaipur International Airport</div>
+  <div class="city" data-city="Ahmedabad, India" data-airport="Sardar Vallabhbhai Patel International Airport" data-location="Ahmedabad, Gujarat">Ahmedabad, India - Sardar Vallabhbhai Patel International Airport</div> 
+        </div>
+        <!-- ---------------------------------------------------------------------- -->
+          <script>
+            const cityDisplay = document.getElementById('selectedCity');
+            const dropdown = document.getElementById('cityDropdown');
+            const searchInput = document.getElementById('search');
+            const cities = Array.from(dropdown.getElementsByClassName('city'));
+        
+            cityDisplay.addEventListener('click', () => {
+              dropdown.classList.toggle('open');
+            });
+        
+            searchInput.addEventListener('input', (e) => {
+              const query = e.target.value.toLowerCase();
+              cities.forEach(city => {
+                city.style.display = city.dataset.city.toLowerCase().includes(query) ? 'block' : 'none';
+              });
+            });
+        
+            cities.forEach(city => {
+              city.addEventListener('click', () => {
+              
+                cityDisplay.innerHTML = `
+                                   <h1>From</h1>
+                                   <div id="flight1">
+                                   <h2 id="fromCity">${city.dataset.city}</h2>
+                                   <h4 id="fromAirport">${city.dataset.airport}</h4>
+                                   <h5>${city.dataset.location}</h5>
+                                   </div>
+                                           `;
+
+                dropdown.classList.remove('open');
+              });
+            });
+          </script>
+    <!------------------------------------------------------------------------------->
+          <div>
+            <button class="swap" onclick="swapFlight()">
+              <svg id="icon1" class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16h13M4 16l4-4m-4 4 4 4M20 8H7m13 0-4 4m4-4-4-4" />
+              </svg>
+              <svg id="icon2" class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 16H7m13 0-4-4m4 4-4 4M4 8h13M4 8l4 4m-4-4 4-4" />
+              </svg>
+          </button>
+    <!-- ---------------------------------------------------- -->
+        
+          <script>
+            function swapFlight() {
+              let icon1 = document.getElementById("icon1");
+              let icon2 = document.getElementById("icon2");
+          
+              // Get DOM elements
+              let fromCityEl = document.getElementById("fromCity");
+              let fromAirportEl = document.getElementById("fromAirport");
+              let fromLocationEl = document.querySelector("#flight1 h5");
+          
+              let toCityEl = document.getElementById("toCity");
+              let toAirportEl = document.getElementById("toAirport");
+              let toLocationEl = document.querySelector("#flight2 h5");
+          
+              // Swap text content
+              [fromCityEl.textContent, toCityEl.textContent] = [toCityEl.textContent, fromCityEl.textContent];
+              [fromAirportEl.textContent, toAirportEl.textContent] = [toAirportEl.textContent, fromAirportEl.textContent];
+              [fromLocationEl.textContent, toLocationEl.textContent] = [toLocationEl.textContent, fromLocationEl.textContent];
+          
+              // Swap icon visibility
+              if (icon1.style.display === "none") {
+                icon1.style.display = "block";
+                icon2.style.display = "none";
+              } else {
+                icon1.style.display = "none";
+                icon2.style.display = "block";
+              }
+            }
+          </script>
+           
+   
+        </div>
+
+<!------------------------------------------------------------------------------------->
+            <div class="flight" >
+                <div>
+                    <div class="city-display1" id="selectedCity1">
+                      <h1>To</h1>
+                      <div id="flight2">
+                      <h2 id="toCity">Chennai, India</h2>
+                      <h4 id="toAirport">Chennai International Airport</h4>
+                      <h5>Madras, Chennai</h5>
+                    </div>
+                    </div>
+                  </div>
+                
+          
+            </div>
+ <!-- ---------------------------------------------------------------------------------------->
+            <div class="dropdown-content1" id="cityDropdown1">
+                <input type="text" id="search1" placeholder="Search city...">
+                <div class="city1" data-city="Delhi, India" data-airport="Indira Gandhi International Airport" data-location="Delhi, India">Delhi, India - Indira Gandhi International Airport</div>
+                <div class="city1" data-city="Bangalore, India" data-airport="Kempegowda International Airport" data-location="Bangalore, Karnataka">Bangalore, India - Kempegowda International Airport</div>
+                <div class="city1" data-city="Chennai, India" data-airport="Chennai International Airport" data-location="Chennai, Tamil Nadu">Chennai, India - Chennai International Airport</div>
+                <div class="city1" data-city="Hyderabad, India" data-airport="Rajiv Gandhi International Airport" data-location="Hyderabad, Telangana">Hyderabad, India - Rajiv Gandhi International Airport</div>
+                <div class="city1" data-city="Kolkata, India" data-airport="Netaji Subhash Chandra Bose International Airport" data-location="Kolkata, West Bengal">Kolkata, India - Netaji Subhash Chandra Bose International Airport</div>
+                <div class="city1" data-city="Pune, India" data-airport="Pune International Airport" data-location="Pune, Maharashtra">Pune, India - Pune International Airport</div>
+                <div class="city1" data-city="Jaipur, India" data-airport="Jaipur International Airport" data-location="Jaipur, Rajasthan">Jaipur, India - Jaipur International Airport</div>
+                <div class="city1" data-city="Ahmedabad, India" data-airport="Sardar Vallabhbhai Patel International Airport" data-location="Ahmedabad, Gujarat">Ahmedabad, India - Sardar Vallabhbhai Patel International Airport</div>
+              </div>
+<!---------------------------------------------------------------------------------------------->
+              <script>
+                const cityDisplay1 = document.getElementById('selectedCity1');
+                const dropdown1 = document.getElementById('cityDropdown1');
+                const searchInput1 = document.getElementById('search1');
+                const cities1 = Array.from(dropdown1.getElementsByClassName('city1'));
+            
+                cityDisplay1.addEventListener('click', () => {
+                  dropdown1.classList.toggle('open');
+                });
+            
+                searchInput1.addEventListener('input', (e) => {
+                  const query = e.target.value.toLowerCase();
+                  cities1.forEach(city => {
+                    city.style.display = city.dataset.city.toLowerCase().includes(query) ? 'block' : 'none';
+                  });
+                });
+            
+                cities1.forEach(city => {
+                  city.addEventListener('click', () => {
+                    cityDisplay1.innerHTML = `
+                    <h1>To</h1>
+                    <div id="flight2">
+                      <h2 id="toCity">${city.dataset.city}</h2>
+                      <h4 id="toAirport">${city.dataset.airport}</h4>
+                      <h5>${city.dataset.location}</h5>
+                    </div>
+                  `;                  
+                    dropdown1.classList.remove('open');
+                  });
+                });
+              </script>
+    
+         <!-------------------------------------------------------------------------------------->
+               <div class="departure-container">
+                  <label>Departure</label>
+
+                     <div>
+                      
+                         <input type="date">
+                     </div>
+               </div>
+            
+      
+    <!---------------------- ---------------------------------------------- -->
+                <div class="departure-container">
+                  <span>Return</span>
+                  <div>
+                      <input type="date">
+                  </div>
+                  </div>
+              <!-- -------------------------------------------- -->
+               <div class="departure-container" >
+                <span>Travellers</span>
+                <select id="class">
+                  <option value="economy">Economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First Class</option>
+              </select>
+               </div>
+          </div>
+          </div>
+          <!-- --------------------------------------------------------------------------- -->
+          <div class="fare-search">
+            <span class="subfare-search">Select a Sepcial fare:</span>
+           
+           <div class="fare-type">
+            <span class="selectype-metadata1"><label><input type="radio" name="trip" checked> Regular</label> </span>
+            <span class="selectype-metadata1"><label><input type="radio" name="trip"> Students</label></span>
+            <span class="selectype-metadata1"><label><input type="radio" name="trip"> Senior Citizens</label></span>
+            <span class="selectype-metadata1"><label><input type="radio" name="trip"> Army Solders</label></span>
+          </div>
+          </div>
+          <div class="search-button">
+            <a href="Flight.html" style="text-decoration: none; color: white;">SEARCH</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    </div>
+
+</div>
+
+<!-----------------------------Header Close ----------------------------->
+<!------------------------------Section one start ------------------------->
+<div class="special-offers">
+  <h1><center>Special Offers</center></h1>
+<div class="container_1">
+  <div class="offer-card">
+      <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_11zon.jpg" alt="Axis Bank Offer">
+      <div class="content">
+        <div class="offer-title">UP to 12% OFF*</div>
+        <div class="offer-desc">On Domestic Flights for your First Booking.</div>
+        <div class="offer-code" onclick="copyCode('WELCOME12')">Code: WELCOME12</div>
+        <a href="OfferPage.html" class="book-now">BOOK NOW</a>
+       
+      </div>
+  </div>
+  <div class="offer-card">
+      <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB-1_11zon%20(1).jpg" alt="PNB Offer">
+      <div class="content">
+        <div class="offer-title">UP to 15% OFF*</div>
+        <div class="offer-desc">On Interanational Flights for your First Booking.</div>
+        <div class="offer-code" onclick="copyCode('WELCOME12')">Code: WELCOME12</div>
+        <a href="OfferPage1.html" class="book-now">BOOK NOW</a>
+      </div>
+  </div>
+  <div class="offer-card">
+      <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_INT_ICICI%20SBI.jpg" alt="Air India Offer">
+      <div class="content">
+        <div class="offer-title">UP to 25% OFF*</div>
+        <div class="offer-desc">On Hotels in India for your First Booking.</div>
+        <div class="offer-code" onclick="copyCode('WELCOME12')">Code: WELCOME12</div>
+        <a href="OfferPage2.html" class="book-now">BOOK NOW</a>
+      </div>
+  </div>
+  <div class="offer-card">
+      <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB-INT%20ICICI.jpg" alt="Air Asia Offer">
+      <div class="content">
+        <div class="offer-title">UP to Rs. 50 OFF*</div>
+        <div class="offer-desc">Flat  Rs. 50 off* on booking your first tarin ticket</div>
+        <div class="offer-code" onclick="copyCode('WELCOME12')">Code: WELCOME12</div>
+        <a href="OFF" class="book-now">BOOK NOW</a>
+      </div>
+  </div>
+  <div class="offer-card">
+    <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_INT_ICICI%20SBI.jpg" alt="Air India Offer">
+    <div class="content">
+      <div class="offer-title">UP to 25% OFF*</div>
+      <div class="offer-desc">On Interanational Hotels for your First Booking.</div>
+      <div class="offer-code" onclick="copyCode('WELCOME12')">Code: WELCOME12</div>
+      <a href="OfferPage3.html" class="book-now">BOOK NOW</a>
+    </div>
+</div>
+<div class="offer-card">
+  <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_INT_ICICI%20SBI.jpg" alt="Air India Offer">
+  <div class="content">
+    <div class="offer-title">UP to 30% OFF*</div>
+    <div class="offer-desc">On Holiday Packages for your First Booking.</div>
+    <div class="offer-code" onclick="copyCode('WELCOME12')">Code: WELCOME12</div>
+    <a href="OfferPage4.html" class="book-now">BOOK NOW</a>
+  </div>
+</div>
+</div>
+</div>
+<!-- -------------------------------------------------------------- -->
+<script>
+  
+    function copyCode(code) {
+      const textArea = document.createElement('textarea');
+      textArea.value = code;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+          document.execCommand('copy');
+          alert(`Coupon Code '${code}' copied to clipboard!`);
+      } catch (err) {
+          console.error('Failed to copy:', err);
+      } finally {
+          document.body.removeChild(textArea);
+      }
+  }
+</script>
+  
+<!------------------------------Section one End ------------------------->
+<!------------------------Section two Start----------------------------------------------->
+<div class="hotels">
+  <h1><center>Recommended Hotels</center></h1>
+  <br><br>
+  <!-- <div class="arrows">
+      <span class="arrow" id="prev-arrow">&#8592;</span>
+      <span class="arrow" id="next-arrow">&#8594;</span>
+  </div> -->
+  <div class="hotel-cards" id="hotel-cards">
+      <div class="hotel-card">
+          <img src="https://www.yatra.com/react-home/_next/image?url=https%3A%2F%2Fimgcld.yatra.com%2Fytimages%2Fimage%2Fupload%2Ft_hotel_mobileactualimage%2Fv0992156762%2FHotel%2F00027674%2FDJI_0037_zmaizK.jpg&w=384&q=75" alt="The Ananta Udaipur">
+          <div class="hotel-info">
+              <h3>Grand 5 Hotel & Plaza Sukhumit Bangkok</h3>
+              <p>📍 Bangkok</p>
+              <p class="rating">⭐ 5.0</p>
+              <p class="price">₹9,667</p>
+              <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+          </div>
+      </div>
+      <div class="hotel-card">
+          <img src="https://www.yatra.com/react-home/_next/image?url=https%3A%2F%2Fimgcld.yatra.com%2Fytimages%2Fimage%2Fupload%2Ft_hotel_mobileactualimage%2Fv1503478525%2FHotel%2FNew%20Delhi%2F00003187%2FOverview_mVNElv.jpg&w=384&q=75" alt="The Suryaa New Delhi">
+          <div class="hotel-info">
+              <h3>The Suryaa New Delhi</h3>
+              <p>📍 New Delhi</p>
+              <p class="rating">⭐ 5.0</p>
+              <p class="price">₹14,744</p>
+              <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+          </div>
+      </div>
+      <div class="hotel-card">
+          <img src="https://www.yatra.com/react-home/_next/image?url=https%3A%2F%2Fimgcld.yatra.com%2Fytimages%2Fimage%2Fupload%2Ft_hotel_mobileactualimage%2Fv1399356288%2FDomestic%20Hotels%2FHotels_Hyderabad%2FThe%20Park%2FOverview.jpg&w=384&q=75" alt="The Park Hyderabad">
+          <div class="hotel-info">
+              <h3>The Park Hyderabad</h3>
+              <p>📍 Hyderabad</p>
+              <p class="rating">⭐ 5.0</p>
+              <p class="price">₹19,499</p>
+              <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+              
+          </div>
+      </div>
+      <div class="hotel-card">
+          <img src="https://www.yatra.com/react-home/_next/image?url=https%3A%2F%2Fimgcld.yatra.com%2Fytimages%2Fimage%2Fupload%2Ft_hotel_mobileactualimage%2Fv1478068735%2FDomestic%20Hotels%2FHotels_Mumbai%2FThe%20Fern%20Goregaon%2FEntrance.jpg&w=384&q=75" alt="The Fern Goregaon">
+          <div class="hotel-info">
+              <h3>The Fern Goregaon</h3>
+              <p>📍 Mumbai</p>
+              <p class="rating">⭐ 5.0</p>
+              <p class="price">₹21,950</p>
+              <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+          </div>
+      </div>
+      <div class="hotel-card">
+        <img src="https://www.yatra.com/react-home/_next/image?url=https%3A%2F%2Fimgcld.yatra.com%2Fytimages%2Fimage%2Fupload%2Ft_hotel_mobileactualimage%2Fv1512546996%2FHotel%2FGoa%2F00082774%2F4483422_View_from_the_room_0HLBOh.jpg&w=384&q=75" alt="Park Regis">
+        <div class="hotel-info">
+            <h3>Park Regis</h3>
+            <p>📍 Goa</p>
+            <p class="rating">⭐ 5.0</p>
+            <p class="price">₹6,705</p>
+            <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const hotelCards = document.getElementById('hotel-cards');
+  const prevArrow = document.getElementById('prev-arrow');
+  const nextArrow = document.getElementById('next-arrow');
+
+  prevArrow.addEventListener('click', () => {
+      hotelCards.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+  nextArrow.addEventListener('click', () => {
+      hotelCards.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+</script>
+
+</div>
+
+<!------------------------Section two End----------------------------------------------->
+
+<!------------------------Section three Start----------------------------------------------->
+<div class="destinations">
+    <h1><center>Popular Destinations</center></h1>
+  <br><br>
+    <!-- <div class="arrows">
+        <span class="arrow" id="prev-arrow">&#8592;</span>
+        <span class="arrow" id="next-arrow">&#8594;</span>
+        </div> -->
+        <div class="top-collections">
+            <div class="collections">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3872/Havelock_2.jpg" >
+                <div class="collection-info">
+                  <h3><a href="Andaman.html">Andaman</a></h3>
+                </div>
+                 </div>
+       <div class="collections">
+                  <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3766/Snow%203.jpeg" >
+                  <div class="collection-info">
+                    <h3><a href="Kashmir.html">Kashmir</a></h3>
+                  </div>
+                   </div>
+       <div class="collections">
+                    <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1329/Taj%20Theog,%20shimla%20during%20snow.jpg" >
+                    <div class="collection-info">
+                      <h3><a href="Himachal.html">Himachal</a></h3>
+                    </div>
+                     </div>
+        <div class="collections">
+            <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/3051/Beach.jpg" >
+                                <div class="collection-info">
+                        <h3><a href="Thailand.html">Thailand</a></h3>
+                      </div>
+                       </div>
+        <div class="collections">
+             <img src="https://hblimg.mmtcdn.com/content/hubble/img/bali/mmt/destination/m_bali_l_393_629.jpg" >
+                 <div class="collection-info">
+                   <h3><a href="Bali.html">Bali</a></h3>
+                   </div>
+             </div>
+        </div>
+    </div>
+    
+</div>
+
+<!------------------------Section three End----------------------------------------------->
+<!------------------------Section Four Start------------------------------------------------->
+<div class="description">
+  <div class="information">
+    <h2>About MyTour</h2>
+   <br> <p>Welcome to the new Future of Travel and Entertainment Booking! “MY TOUR”<br>
+      The “MY TOUR” is to provide a convenient way for a customer to book hotels, flight, train 
+      and bus for tour purposes. It is a web-based application system. This application will make an 
+      easier task of searching places and for booking train, flight or bus.<br>
+      It operates as an end-to-end travel solution provider, including flight bookings, hotel reservations,
+     holiday packages, and more. It serves as a one-stop destination for all travel needs.<br>
+     It’s mission is to empower travelers by providing seamless booking experiences, while its vision 
+     focuses on becoming the most trusted and user-friendly travel platform globally.<br>
+    </p>
+    <br><br>
+    <h3>How Does myTour help You to Plan Your Travel?</h3>
+    <br><p>
+      MyTour offers a collection of everything you need for a perfect trip. All can be done simultaneously, from flights to taxis to hotel bookings. This is how planning flights and hotels with MyTour gives you a clear edge:-<br><br>
+      <b>MyTour Max:</b> It offers free cancellation or rescheduling for domestic (up to 24 hours before departure) and international flights (up to 72 hours before departure).<br>
+<br><b>MyTour Plus:</b>Free date or airline change up to 12 hours (or 24 hours for Air India* and Vistara*) before departure.
+<br><br><b>Easy hotel cancellation:</b>  You can quickly cancel your hotel stay. There are no costs for hotel cancellations up to 24 hours before check-in at over 20,000 hotels.
+<br><br><b>Instant refund initiation:</b> All flight and hotel cancellation refunds are processed immediately.<br>
+<br><b>Medi-cancel refund: </b>Cancel your domestic flight booking for sound medical reasons and receive up to INR 3500 against airline cancellation charges per person per segment.
+<br><br><b>International travel insurance:</b> For only INR 89 per user daily, you can get stress-free coverage against a wide range of uncertainties for all foreign destinations.<br>
+<br><b>Special fares for armed personnel, senior citizens, and student travellers:</b> MyTour has introduced lower pricing on domestic flights for armed personnel, senior citizens, and students. Coupon codes provide further discounts.
+  Special fares for armed personnel, senior citizens, and student travellers: MyTour has introduced lower pricing on domestic flights for armed personnel, senior citizens, and students. Coupon codes provide further discounts. </p>
+  <br><br><br>
+          <h3>FAQs: Flights, Hotels, Bus and Train Booking on MyTour</h3>
+   <br><br>
+   
+   <details>  
+    <summary><h4>What services does MyTour offer?<h4></summary>
+      <br>
+      MyTour is dedicated to making travel easy, economical, and uncomplicated, from international to domestic flights, from early morning to late night flights, and from budget to luxury flights. It allows you to book your flight with just a few clicks. Our features include:<br>
+
+<br>1. MyTour Max offers free cancellation or rescheduling for domestic and international flights.
+<br>2. MyTour Plus: Free date or airline change up to 12 hours before departure.<br>
+3. Medical reasons to cancel your domestic travel, and receive up to INR3500 compensation against airline cancellation charges per person per segment.
+    </details>
+    <br><br>
+    <details>
+      <summary><h4>How to create an account on MyTour?</h4></summary>
+      <br>
+      <p>For all your travel bookings, sign up on MyTour.<br><br>
+         1. Go to the home page, click the link (top right), and enter your email address. We'll then send you an account activation link.
+       <br> 2. Click it, and you'll be able to access your MyTour account.<br><br>
+        The account activation link expires three days after you provide us with your email address, so please activate your account within that time frame.</p>
+    </details>
+    <br><br>
+    <details>
+      <summary>
+        <h4>How can You contact MyTour customer support?</h4>  </summary>
+        <br>
+        <p>
+          You can reach MyTour Customer Support and Phone Number. Contact us at +91 9595950000. We are here to assist you with your booking and rescheduling queries.
+        </p>
+    
+    </details>
+    <br><br>
+    <details>
+      <summary>
+        <h4>How to search for flights on MyTour?</h4>
+      </summary>
+      <br>
+      <p>
+        We make it relatively simple to search and book MyTour Flights
+        <br><br>
+        1. Enter source and destination cities/airports.<br>
+        2. Select the date of travel. <br>
+        3. Select the number of travellers.<br>
+        4.Hit enter, and you're done! You have a search list of all available flights, sorted by price.<br><br>
+        You may also refine your hotel booking search results by utilising parameters such as price, star rating, traveller rating, facilities, and preferences such as hill-view or couple-friendly hotels. MyTour offers hotels for all types of stays. 
+        MyTour hotels are curated to give you the best value for your money.
+      </p>
+    </details>
+    <br><br>
+    <details>
+      <summary><h4>How to search for hotels on MyTour?</h4></summary>
+      <br>
+      <p>
+        Booking a hotel online has never been easier than it is with MyTour.
+        <br><br>
+       1. Click the 'hotels' tab on the site. <br>
+       2. Enter the city/locality/landmark/hotel name in the search bar.<br>
+       3. Enter the check-in and check-out dates. <br>
+       4. Choose the number of travellers and press enter.
+       <br><br>
+       You may also refine your hotel booking search results by utilising parameters such as price, star rating, traveller rating, facilities, and preferences such as hill-view or couple-friendly hotels. MyTour offers hotels for all types of stays. 
+       MyTour hotels are curated to give you the best value for your money.
+      </p>
+    </details>
+    <br><br>
+    <details>
+      <summary>
+        <h4>How to book train tickets on MyTour?</h4>
+      </summary>
+      <br>
+      <p>
+        MyTour enables you to buy train tickets and search for them. Simply click 'check availability' on the search results page, and you will find the book button to click for bookings. Booking MyTour trains is simple and fast.
+      </p>
+    </details>
+    <br><br>
+    <h4>Disclaimer</h4>
+    <br>
+    <p>In addition to the above, the data presented here cannot be assumed reliable; instead, it may vary over time in response to changing demands.</p>
+</div>
+</div>
+<!------------------------Section Four End------------------------------------------------->
+
+<!------------------------------Footer Section Start--------------------------------------->
+<div class="footer">
+  <div class="section">
+    <h2>Popular Trending Routes</h2>
+    <div class="routes" id="trending-routes">
+        <!-- Dynamic content inserted here -->
+    </div>
+</div>
+
+<div class="section">
+    <h2>Popular Domestic Flight Routes</h2>
+    <div class="routes" id="domestic-routes">
+        <!-- Dynamic content inserted here -->
+    </div>
+</div>
+
+<div class="section">
+  <h2>Popular International Flight Routes</h2>
+  <div class="routes" id="international-routes">
+      <!-- Dynamic content inserted here -->
+  </div>
+</div>
+<div class="section">
+  <h2>MyTour Products</h2>
+  <div class="routes" id="products">
+    <!-- Dynamic content inserted here -->
+</div>
+</div>
+</div>
+
+<script>
+const trendingRoutes = [
+    "Delhi to Sydney Flight", "Mumbai to Bangkok Flight", "Delhi to Singapore Flight", 
+    "Delhi to New York Flight", "Mumbai to London Flight", "Mumbai to Dubai Flight", 
+    "Delhi to Ahmedabad Flight", "Delhi to Kochi Flight", "Indore to Goa Flight", 
+    "Kolkata to Bangalore Flight", "Ahmedabad to Jaipur Flight", "Mumbai to Goa Flight", 
+    
+];
+
+const domesticRoutes = [
+    "Delhi to Jammu Flight", "Kolkata to Hyderabad Flight", "Delhi to Hyderabad Flight", 
+    "Kolkata to Chennai Flight", "Mumbai to Ahmedabad Flight", "Hyderabad to Bangalore Flight", 
+    "Kochi to Delhi Flight", "Bangalore to Kochi Flight", "Delhi to Guwahati Flight", 
+    "Madurai to Chennai Flight", "Mumbai to Kolkata Flight", "Bangalore to Lucknow Flight", 
+    
+];
+
+const internationalRoutes = [
+"Delhi to Mauritius Flight","Dubai to Hyderabad Flight","Delhi to Bali Flight","Delhi to Zurich Flight",
+"Delhi to Male Flight","Mumbai to Bangkok Flight","Bangalore to Male Flight","Delhi to Seoul Flight",
+"Delhi to Colombo Flight","Lucknow to Dubai Flight","Dubai to Chandigarh Flight","Delhi to Melbourne Flight",
+
+] ;
+
+const products = [
+"Flights","International Airlines","Domestic Airlines","Hotels","Trains","Bus Booking","Holidays",
+"International Holiday Packages","India Holiday Packages","Outstation Cabs","Indian Monuments","MICE"
+] ;
+
+function renderRoutes(containerId, routes) {
+    const container = document.getElementById(containerId);
+    routes.forEach(route => {
+        const routeDiv = document.createElement('div');
+        routeDiv.className = 'route';
+        routeDiv.textContent = route;
+        container.appendChild(routeDiv);
+    });
+}
+
+renderRoutes('trending-routes', trendingRoutes);
+renderRoutes('domestic-routes', domesticRoutes);
+renderRoutes('international-routes', internationalRoutes);
+renderRoutes('products', products);
+</script>
+</div>
+<div class="footer-bottom">
+  <div class="social-icons">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+</div>
+
+</div>
+<!------------------------------Footer Section Start--------------------------------------->
+</body> 
+</html>

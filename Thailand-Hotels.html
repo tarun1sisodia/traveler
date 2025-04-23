@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thailand-Hotels</title>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+   <!----------Font Awesom Link-------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!----------Font Awesom Link-------------->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+   <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f8fa;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  color: black;
+}
+.container{
+  padding: 10px 10%;
+}
+
+.logo{
+  height: 55px;
+  width: 140px;
+  margin-left: 200px;
+}  
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  cursor: pointer;
+}
+nav ul li:hover {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+ul span{
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  
+}
+.fa {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: black;
+  
+}
+
+.fa:hover{
+  color: rgb(18,119,226);
+  box-shadow: #007bff;
+}
+
+.a{
+  color: black;
+  text-decoration: none;
+}
+span a:hover{
+  color: rgb(18,119,226);
+}
+main {
+    padding: 50px 20px;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89oAIUrgz8Bk78buwRAuLcJBDsjF4OfEL7A&shttps://images.emtcontent.com/holiday-img/home-img/kerala_newbb.png') no-repeat center center/cover;
+    color: black;
+    height: 300px;
+ 
+}
+
+.search-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: auto;
+}
+
+.search-box h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.search-form input,
+.search-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.search-form button {
+  background-color: #0c4499;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-form button:hover {
+  background: linear-gradient(90deg, #0072ff, #0056b3);
+  transition: background 0.3s ease;
+  color: white;
+}
+/* Package Cards */
+h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: #0077cc;
+    margin-bottom: 10px;
+
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+
+  select, input[type=range], button {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+  .button-group button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .button-group button:hover {
+    background-color: #0056b3;
+  }
+
+  .slider-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .package-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+      justify-content: center;
+  }
+
+  .package-card {
+    background-color: white;
+    width: 300px;
+   border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .package-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-image {
+    position: relative;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .duration-tag {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-content h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .card-content p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #444;
+    margin-bottom: 16px;
+  }
+
+  .icons div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing {
+    padding: 0 16px 16px 16px;
+    border-top: 1px solid #eee;
+  }
+
+  .price {
+    font-size: 1.1rem;
+    color: rgb(18,119,226);
+    font-weight: bold;
+  }
+
+  .old-price {
+    text-decoration: line-through;
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  .button {
+    margin-top: 10px;
+    background-color:rgb(18,119,226);;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .button:hover {
+      background: linear-gradient(90deg, #0072ff, #0056b3);
+  transition: background 0.3s ease;
+  color: white;
+  }
+
+  .emi {
+    font-size: 0.75rem;
+    color: #555;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .package-container {
+      justify-content: center;
+    }
+  }
+  /* Responsive Design */
+footer {
+  background-color: #1a2b49;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 24px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+  .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+  }
+  .footer-links a:hover {
+        color: #007bff;
+        text-decoration: underline;   
+  }
+  .footer-content a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+
+  }
+</style>
+</head>
+<body>
+    <header>
+        <div>   <a href="MyTour.html"><img class="logo" src="logo2-Photoroom.png"></a> </div>
+        <nav>
+          <ul class="categories">
+              <span><a href="MyTour.html" class="a"><i class="fa fa-plane"></i><br>Flight</a></span>
+              <span><a href="Hotels.html"class="a"><i class="fa fa-hotel"></i><br>Hotels</a></span>
+              <span><a href="Bus.html" class="a"><i class="fa fa-bus"></i><br>Bus</a></span>
+              <span><a href="Train.html" class="a"><i class="fa fa-car"></i><br>Cabs</a></span>
+              <span><a href="Train.html" class="a"><i class="fa fa-train"></i><br>Train</a></span>
+              <span><a href="Holidays.html" class="a"><i class="fa fa-gift"></i><br>Holidays</a></span>
+          </ul>
+      </nav>
+      </header>
+      <main>
+        <section class="search-box">
+          <h1>Search hotels</h1>
+          <p>Enjoy hassle free bookings with myTour</p>
+          <div class="search-form">
+            <input type="text" id="location" placeholder="Enter city" value="Thailand" />
+            <input type="date" id="checkin" value="o4/05/2023" />
+            <input type="date" id="checkout" value="20/05/2023" />
+            <select id="guests">
+              <option>1 Room, 2 Adults</option>
+              <option>1 Room, 1 Adult</option>
+              <option>2 Rooms, 4 Adults</option>
+            </select>
+            <button onclick="searchHotels()">Search Hotels</button>
+          </div>
+        </section>
+      </main>
+      <script>
+        function searchHotels() {
+      const location = document.getElementById("location").value;
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+      const guests = document.getElementById("guests").value;
+    
+      alert(`Searching hotels in ${location} from ${checkin} to ${checkout} for ${guests}`);
+    }
+      </script>
+       <!-- ---------------------- -->
+        <!-- Package Cards -->
+         <h2>Top Hotels in Thailand</h2>
+  <div class="package-container">
+    <!-- Card 1 -->
+    <div class="package-card">
+      <div class="card-image">
+        <img src="https://r1imghtlak.mmtcdn.com/1a13bd50209a11ea919f0242ac110002.jpg?output-quality=75&downsize=243:162&output-format=jpg">
+        <div class="duration-tag">⭐ 5.0</div>
+      </div>
+      <div class="card-content">
+        <h3>Baiyoke Sky Hotel</h3>
+        <p>📍Pratunam</p>
+        <p><img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/> Couple Friendly <img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/>Free wifi <br> <img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/>Kids friendly</p>
+        <div class="icons">
+          <div>🏨<span>Hotel</span></div>
+          <div>🗺️<span>Sightseeing</span></div>
+          <div>🚗<span>Transfer</span></div>
+          <div>🍽️<span>Meal</span></div>
+          <div>✈️<span>Flight</span></div>
+        </div>
+      </div>
+      <div class="pricing">
+        <div class="old-price"> ₹ 3,299</div>
+        <div class="price"> ₹ 2,939</div>
+       <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="package-card">
+        <div class="card-image">
+          <img src="https://r1imghtlak.mmtcdn.com/5b545ae418c111eaa53c0242ac110003.jpg?output-quality=75&downsize=243:162&output-format=jpg">
+          <div class="duration-tag">⭐ 4.5</div>
+        </div>
+        <div class="card-content">
+          <h3>Ramada D'MA Bangkok</h3>
+          <p>📍Pratunam</p>
+          <p><img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/> Couple Friendly <img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/>Free wifi</p>
+          <div class="icons">
+            <div>🏨<span>Hotel</span></div>
+            <div>🗺️<span>Sightseeing</span></div>
+            <div>🚗<span>Transfer</span></div>
+            <div>🍽️<span>Meal</span></div>
+            <div>✈️<span>Flight</span></div>
+          </div>
+        </div>
+        <div class="pricing">
+          <div class="old-price"> ₹ 18,348</div>
+          <div class="price"> ₹ 15,221</div>
+          <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+        </div>
+      </div>
+    <!-- Card 3 -->
+    <div class="package-card">
+        <div class="card-image">
+          <img src="https://r1imghtlak.mmtcdn.com/7a436c9882ef11e78ba70a4cef95d023.jpg?output-quality=75&downsize=243:162&output-format=jpg">
+          <div class="duration-tag">⭐ 4.0</div>
+        </div>
+        <div class="card-content">
+          <h3>Bangkok Palace Hotel</h3>
+          <p>📍Pratunam</p>
+          <p><img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/> Couple Friendly <img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/>Free wifi</p>
+          <div class="icons">
+            <div>🏨<span>Hotel</span></div>
+            <div>🗺️<span>Sightseeing</span></div>
+            <div>🚗<span>Transfer</span></div>
+            <div>🍽️<span>Meal</span></div>
+            <div>✈️<span>Flight</span></div>
+          </div>
+        </div>
+        <div class="pricing">
+          <div class="old-price">  ₹  11,881</div>
+          <div class="price"> ₹ 6,280</div>
+          <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+        </div>
+      </div>
+    <!-- Card 4 -->
+    <div class="package-card">
+        <div class="card-image">
+          <img src="https://r1imghtlak.mmtcdn.com/02bc9dfe9d0511e79d75025f77df004f.jpg?output-quality=75&downsize=243:162&output-format=jpg">
+          <div class="duration-tag">⭐ 4.6</div>
+        </div>
+        <div class="card-content">
+          <h3>Grand 5 Hotel & Plaza Sukhumit Bangkok</h3>
+          <p>📍Sukhumit</p>
+          <p><img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/> Couple Friendly <img src="https://www.easemytrip.com/hotels/images/tikmarknwg.svg"/>Free wifi</p>
+          <div class="icons">
+            <div>🏨<span>Hotel</span></div>
+            <div>🗺️<span>Sightseeing</span></div>
+            <div>🚗<span>Transfer</span></div>
+            <div>🍽️<span>Meal</span></div>
+            <div>✈️<span>Flight</span></div>
+          </div>
+        </div>
+        <div class="pricing">
+          <div class="old-price"> ₹ 11,594</div>
+          <div class="price"> ₹ 10,534</div>
+          <a href="Hotel-Booking-Page.html"> <button class="button">Book Now</button></a>
+        </div>
+      </div>  
+  </div>
+<!-- ----------------- -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2023 myTour. All rights reserved.</p>
+    <p>Follow us on:
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </p>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact Us</a>
+  </div>
+</footer>
+
+    
+</body>
+</html>

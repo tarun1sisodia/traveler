@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Booking</title>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+   <!----------Font Awesom Link-------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!----------Font Awesom Link-------------->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+   <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f8fa;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  color: black;
+}
+.container{
+  padding: 10px 10%;
+}
+
+.logo{
+  height: 55px;
+  width: 140px;
+  margin-left: 200px;
+}  
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  cursor: pointer;
+}
+nav ul li:hover {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+ul span{
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  
+}
+.fa {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: black;
+  
+}
+
+.fa:hover{
+  color: rgb(18,119,226);
+  box-shadow: #007bff;
+}
+
+.a{
+  color: black;
+  text-decoration: none;
+}
+span a:hover{
+  color: rgb(18,119,226);
+}
+main {
+    padding: 50px 20px;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89oAIUrgz8Bk78buwRAuLcJBDsjF4OfEL7A&shttps://images.emtcontent.com/holiday-img/home-img/kerala_newbb.png') no-repeat center center/cover;
+    color: black;
+    height: 300px;
+ 
+}
+
+.search-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: auto;
+}
+
+.search-box h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.search-form input,
+.search-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.search-form button {
+  background-color: #0c4499;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-form button:hover {
+  background: linear-gradient(90deg, #0072ff, #0056b3);
+  transition: background 0.3s ease;
+  color: white;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.offer-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.offer-card:hover {
+  transform: scale(1.05);
+}
+.offer-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.offer-card .content {
+  padding: 15px;
+}
+.offer-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.offer-card p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #555;
+}
+.offer-card .cta {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #0004ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.offer-card .cta:hover {
+  background: linear-gradient(90deg, #0072ff, #0056b3);
+  transition: background 0.3s ease;
+  color: white;
+}
+/* ---------------------------------------- */
+h1 {
+  text-align: center;
+  margin: 20px;
+  color: #222;
+  font-size: 2.5rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  display: flex;
+  background: #fff;
+  border: 2px solid #cde3f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #f0f8ff;
+  border: 2px solid #007bff;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.card img {
+  width: 380px;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+
+.card-content {
+  padding: 10px 15px;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.card:active {
+  background-color: #f0f8ff;
+}
+
+
+/* Responsive Design */
+.benefits-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
+
+.benefit-card {
+  border: 1px solid #aad0ff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 220px;
+  background-color: #f9fbff;
+  transition: transform 0.3s ease;
+  
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #007bff;
+  background-color: #e6f0ff;
+  
+}
+
+.benefit-card img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.benefit-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .benefit-card {
+    width: 90%;
+  }
+}
+/* Responsive Design */
+footer {
+  background-color: #1a2b49;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 24px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+  .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+  }
+  .footer-links a:hover {
+        color: #007bff;
+        text-decoration: underline;   
+  }
+  .footer-content a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+
+  }
+    </style>
+</head>
+<body>
+  <header>
+    <div>   <a href="MyTour.html"><img class="logo" src="logo2-Photoroom.png"></a> </div>
+    <nav>
+      <ul class="categories">
+          <span><a href="MyTour.html" class="a"><i class="fa fa-plane"></i><br>Flight</a></span>
+          <span><a href="Hotels.html"class="a"><i class="fa fa-hotel"></i><br>Hotels</a></span>
+          <span><a href="Bus.html" class="a"><i class="fa fa-bus"></i><br>Bus</a></span>
+          <span><a href="Train.html" class="a"><i class="fa fa-car"></i><br>Cabs</a></span>
+          <span><a href="Train.html" class="a"><i class="fa fa-train"></i><br>Train</a></span>
+          <span><a href="Holidays.html" class="a"><i class="fa fa-gift"></i><br>Holidays</a></span>
+      </ul>
+  </nav>
+  </header>
+
+  <main>
+    <section class="search-box">
+      <h1>Search hotels</h1>
+      <p>Enjoy hassle free bookings with myTour</p>
+      <div class="search-form">
+        <label for="location">Enter City:</label>
+        <!-- <input type="text" id="location" placeholder="Enter city" value="" /> -->
+        <select id="location">
+          <option value="select departure city">Select city</option>
+          <option value="bengaluru">Bali</option>
+          <option value="hyderabad">Delhi</option>
+          <option value="pune">Himachal</option>
+          <option value="chennai">Thailand</option>
+          <option value="delhi">Kashmir</option>
+          <option value="mumbai">Andaman</option>
+          
+      </select>
+
+        <label for="checkin">Check-in:</label>
+        <input type="date" id="checkin" value="" />
+        <label for="checkout">Check-out:</label>
+        <input type="date" id="checkout" value="" />
+        <select id="guests">
+          <option>1 Room, 2 Adults</option>
+          <option>1 Room, 1 Adult</option>
+          <option>2 Rooms, 4 Adults</option>
+        </select>
+      <a href="Delhi-Hotels.html"> <button onclick="searchHotels()">Search Hotels</button></a>
+      </div>
+    </section>
+  </main>
+  <script>
+    function searchHotels() {
+  const location = document.getElementById("location").value;
+  const checkin = document.getElementById("checkin").value;
+  const checkout = document.getElementById("checkout").value;
+  const guests = document.getElementById("guests").value;
+
+ //  alert(`Searching hotels in ${location} from ${checkin} to ${checkout} for ${guests}`);
+}
+  </script>
+  <!-- ------------------------------------------- -->
+  <div><h1><center>Special Offers</center></h1></div>
+  <div class="container">
+    
+    <div class="offer-card">
+        <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_BOBEMI_H_0110%20(1)_11zon.png" alt="Axis Bank Offer">
+        <div class="content">
+            <h3>Up to 20% off</h3>
+            <p>Additional savings on EMI on Flights with Axis Bank Credit Card EMI</p>
+            <a href="#" class="cta">Book Now</a>
+        </div>
+    </div>
+    <div class="offer-card">
+        <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_Lords_1%20(1).jpg" alt="PNB Offer">
+        <div class="content">
+            <h3>Up to 25% off</h3>
+            <p>On flights with Punjab National Bank Credit Cards</p>
+            <a href="#" class="cta">Book Now</a>
+        </div>
+    </div>
+    <div class="offer-card">
+        <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB_IDFCEMI-min_11zon.jpg" alt="Air India Offer">
+        <div class="content">
+            <h3>Up to 15% off</h3>
+            <p>On premium economy fares with Air India</p>
+            <a href="#" class="cta">Book Now</a>
+        </div>
+    </div>
+    <div class="offer-card">
+        <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto,w_235,h_122,dpr_2/offermgmt-prod/offermgmt/images/banner/BSB-FEDCCDC_HOTEL.jpg" alt="Air Asia Offer">
+        <div class="content">
+            <h3>Up to 24% off</h3>
+            <p>On flights with Air Asia</p>
+            <a href="#" class="cta">Book Now</a>
+        </div>
+    </div>
+</div>
+<!-- --------------------------------------------- -->
+ <div>
+<h1>Book Hotels At Popular Destinations</h1>
+<div class="grid-container" id="destinations"></div>
+
+<script>
+  const destinations = [
+    { name: "Delhi", image: "https://images.emtcontent.com/hotel-img/del-sm.webp", link:"Delhi-Hotels.html"},
+    { name: "Kashmir", image: "https://rukmini-ct.flixcart.com/w_288,h_240,fl_progressive,e_sharpen:80,c_fill,dpr_2,f_auto,q_75/ct-hotel-images/places/hotels/cms/2879/2879362/images/10_d5u8I3.jpg", link:"Kashmir-Hotels.html"},
+    { name: "Bali", image: "https://rukmini-ct.flixcart.com/w_500,h_240,fl_progressive,e_sharpen:80,c_fill,dpr_2,f_auto,q_75/ct-hotel-images/places/hotels/cms/3452/345241/images/15ce319c_z.jpg", link:"Bali-Hotels.html" },
+    { name: "Himachal", image: "https://images.emtcontent.com/hotel-img/manali-sm.webp", link:"Himachal-Hotels.html"},
+    { name: "Thailand", image: "https://rukmini-ct.flixcart.com/w_288,h_240,fl_progressive,e_sharpen:80,c_fill,dpr_2,f_auto,q_75/ct-hotel-images/places/hotels/cms/3401/340138/images/cdefc5ba_z.jpg", link:"Thailand-Hotels.html" },
+    { name: "Andaman", image: "https://rukmini-ct.flixcart.com/w_288,h_240,fl_progressive,e_sharpen:80,c_fill,dpr_2,f_auto,q_75/ct-hotel-images/places/hotels/cms/4130/41303/images/5481c512_z.jpg", link:"Andaman-Hotels.html" },
+    
+  ];
+
+  const container = document.getElementById("destinations");
+
+  destinations.forEach(dest => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const link = document.createElement("a");
+    link.href = dest.link;
+    link.innerHTML = `
+      <img src="${dest.image}" alt="${dest.name}" />
+      <div class="card-content">
+        <h2>${dest.name}</h2>
+        <p>Hotels, Budget Hotels, 3 Star Hotels,<br />4 Star Hotels, 5 Star Hotels</p>
+      </div>
+    `;
+    card.addEventListener("click", () => {
+      window.location.href = dest.link;
+    });
+    card.appendChild(link);
+    container.appendChild(card);
+  });
+ 
+  
+</script>
+</div>
+<!-- ------------------------------------------ -->
+  <div>
+<h1>Benefits of Booking With Us</h1>
+</div>
+<div class="container">
+  <div class="benefits-container">
+    <div class="benefit-card">
+      <img src="https://images.emtcontent.com/hotel-img/hotel-icn.svg">
+      <h3>Extensive Hotel Options</h3>
+      <p>Best hotels available for different destinations to offer you the stay of a lifetime.</p>
+    </div>
+    <div class="benefit-card">
+      <img src="https://images.emtcontent.com/hotel-img/wallet-icn.svg">
+      <h3>Savings on Hotel Booking</h3>
+      <p>Enjoy hotel bookings with the best offers and discounts and make your stay unforgettable.</p>
+    </div>
+    <div class="benefit-card">
+      <img src="https://images.emtcontent.com/hotel-img/rating-icn.svg" alt="Best Price Guarantee">
+      <h3>Hotel Ratings</h3>
+      <p>All our hotels have good ratings on Trip Advisor and are recommended by users.</p>
+    </div>
+    <div class="benefit-card">
+      <img src="https://images.emtcontent.com/hotel-img/beach-icn.svg" >
+      <h3>Best Price</h3>
+      <p>Get excellent hotels/resorts at the best prices to pamper your desires.</p>
+    </div>
+  </div>
+</div>
+  <!-- ------------------------------------------------------- -->
+   <div>
+  <h2>Why book hotels online on myTour?</h2>
+  <p>Looking for online hotel booking sites? Your search ends here. From guest houses to resorts, from budget-friendly to luxury, whether for business or for leisure, myTour is your go-to hotel booking app. Our curated, verified list of 400000+ hotels across 28000+ cities from around the globe ensures you have enough options to choose from and complete your online hotel booking at ease. Find a list of hotel chains such as oyo rooms, fabhotels, treebo hotels, etc. Seamlessly book hotels in Delhi, hotels in Mumbai, hotels in Bangalore, hotels in Goa and many more.
+    <br><br>
+    With an array of filters and sorting options, you can simplify the search for your hotel room booking. It shows all the details of your preferred hotel, like description, highlights, photos, amenities, room types, rates all in one place. Additional features like pay-at-hotel, express checkout and free cancellations make the process of booking a hotel effortless.
+  </p>
+  
+</div>
+ <!-- ---------------------------------------------------------- -->
+ <footer>
+  <div class="footer-content">
+    <p>&copy; 2023 myTour. All rights reserved.</p>
+    <p>Follow us on:
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </p>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact Us</a>
+  </div>
+</footer>
+</body>
+</html>

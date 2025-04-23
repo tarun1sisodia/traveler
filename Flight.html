@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - myTour</title>
+    <link rel="stylesheet" href="Flight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="MyTour.html">myTour</a>
+                </div>
+                <nav class="nav-desktop">
+                    <ul>
+                        <li><a href="Bus.html">Bus</a></li>
+                        <li><a href="Hotels.html">Hotels</a></li>
+                        <li><a href="Train.html">Cabs</a></li>
+                        <li><a href="Train.html">Train</a></li>
+                        <li><a href="Holiday.html">Holiday</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <!-- <a href="login.html" class="btn btn-primary login-btn">Login</a> -->
+                    <div class="user-profile-menu hidden">
+                        <div class="profile-trigger">
+                            <div class="avatar">
+                                <span class="avatar-text">J</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="user-info">
+                                <p class="user-name">John Doe</p>
+                                <p class="user-email">john.doe@example.com</p>
+                            </div>
+                            <ul>
+                                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="profile.html?tab=bookings"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+                                <li><a href="profile.html?tab=settings"><i class="fas fa-cog"></i> Settings</a></li>
+                                <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-mobile hidden">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            
+            </ul>
+        </nav>
+    </header>
+
+    <main class="search-results-page">
+        <div class="container">
+            <div class="search-summary" id="search-summary">
+                <!-- Search summary will be populated by JavaScript -->
+            </div>
+
+            <div class="search-results-container">
+                <div class="filter-sidebar">
+                    <div class="filter-card">
+                        <div class="filter-header">
+                            <h3>Filters</h3>
+                        </div>
+                        <div class="filter-body">
+                            <div class="filter-section">
+                                <h4>Price Range</h4>
+                                <div class="price-slider-container">
+                                    <div class="price-slider" id="price-slider"></div>
+                                    <div class="price-range">
+                                        <span id="min-price">$0</span>
+                                        <span id="max-price">$2000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-section">
+                                <h4>Airlines</h4>
+                                <div class="checkbox-list" id="airlines-list">
+                                    <!-- Airlines will be populated by JavaScript -->
+                                </div>
+                            </div>
+
+                            <div class="filter-section">
+                                <h4>Stops</h4>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="stops" value="non-stop">
+                                        <span>Non-stop</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="stops" value="1-stop">
+                                        <span>1 Stop</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="stops" value="multi-stop">
+                                        <span>2+ Stops</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="filter-buttons">
+                                <button class="btn btn-primary" id="apply-filters">Apply Filters</button>
+                                <button class="btn btn-outline" id="reset-filters">Reset Filters</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flight-results" id="flight-results">
+                    <div class="loading-indicator">
+                        <div class="spinner"></div>
+                        <p>Searching for flights...</p>
+                    </div>
+                    <!-- Flight results will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SkyWay</h3>
+                    <p>Book flights at the best prices with SkyWay. We offer the best deals on domestic and international flights.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="offers.html">Offers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="refund.html">Refund Policy</a></li>
+                        <li><a href="cancellation.html">Cancellation</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:support@skyway.com">support@myTour.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+18001234567">+1 800 123 4567</a></li>
+                    </ul>
+                    <div class="newsletter">
+                        <h4>Subscribe to our newsletter</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="current-year"></span> myTour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container"></div>
+
+    <script src="App.js"></script>
+    <script src="auth.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

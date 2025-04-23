@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Package</title>
+    <link rel="stylesheet" href="Holidays.css">
+    <script defer src="script.js"></script>
+    <!----------Font Awesom Link-------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!----------Font Awesom Link-------------->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+<body>
+    <header>
+        <div>   <a href="MyTour.html"><img class="logo" src="logo2-Photoroom.png"></a> </div>
+        <nav>
+            <ul class="categories">
+                <span><a href="Flight.html" class="a"><i class="fa fa-plane"></i><br>Flight</a></span>
+                <span><a href="Hotels.html"class="a"><i class="fa fa-hotel"></i><br>Hotels</a></span>
+                <span><a href="Bus.html" class="a"><i class="fa fa-bus"></i><br>Bus</a></span>
+                <span><a href="Train.html" class="a"><i class="fa fa-car"></i><br>Cabs</a></span>
+                <span><a href="Train.html" class="a"><i class="fa fa-train"></i><br>Train</a></span>
+                <span><a href="Holidays.html" class="a"><i class="fa fa-gift"></i><br>Holidays</a></span>
+            </ul>
+        </nav>
+        <!-- <button class="login-btn">Login or Signup</button> -->
+    </header>
+    
+    <section class="hero">
+        <div class="banner">
+            <!-- <h1>End of Season Sale</h1>
+            <p>Extended Till 31st March</p> -->
+        </div>
+         <div class="search-bar">
+            <select>
+                <option value="">Select Destination</option>
+                 <option value="Kashmir">Kashmir</option>
+                <option value="Goa">Goa</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Andaman">Andaman</option>
+                <option value="Himachal">Himachal</option>
+            </select>
+            <button>Search</button>
+        </div>
+    </section>
+    <div class="category-bar" id="categoryBar">
+        <div class="category selected" onclick="selectCategory(this)">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/grpdept-holsm.png " alt="Group Departure">
+            <span>Group Departure</span>
+        </div>
+        <div class="category" onclick="selectCategory(this)">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/honymn_holsm.png" alt="Honeymoon">
+            <span>Honeymoon</span>
+        </div>
+        <div class="category" onclick="selectCategory(this)">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/pilgrimage-holsm.png" alt="Pilgrimage">
+            <span>Pilgrimage</span>
+        </div>
+        <div class="category" onclick="selectCategory(this)">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/ayurveda-holsm.png" alt="Ayurveda">
+            <span>Ayurveda</span>
+        </div>
+        <div class="category" onclick="selectCategory(this)">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/leisure-holsm.png" alt="Luxury">
+            <span>Luxury</span>
+        </div>
+        <div class="category" onclick="selectCategory(this)">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/advntu-holsm.png" alt="Adventure">
+            <span>Adventure</span>
+        </div>
+    </div>
+
+    <script>
+        function selectCategory(element) {
+            document.querySelectorAll('.category').forEach(cat => cat.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+ <!-- ------------------------------------------------------- -->
+ <div class="container">
+    <h1>Top Trending Destinations</h1>
+    <p>Explore the hottest travel spots around the globe.</p>
+    <div class="destinations">
+        <div class="destination">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/bali-qckv.webp" alt="Bali">
+            <span><a href="Bali.html">Bali</a></span>
+        </div>
+        <div class="destination">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/andaman-handpckd.webp" alt="Andaman">
+            <span><a href="Andaman.html">Andaman</a></span>
+        </div>
+        <div class="destination">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp" alt="Kashmir">
+            <span><a href="Kashmir.html">Kashmir</a></span>
+        </div>
+        <div class="destination">
+            <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/4194/Explore%20the%20offbeat%20Kinnaur%20region.jpg?crop=134:207&downsize=134:207" alt="Himachal">
+            <span><a href="Himachal.html">Himachal</a></span>
+        </div>
+        <div class="destination">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/thailand.png" alt="thailand">
+            <span><a href="Thailand.html">Thailand</a></span>
+        </div>
+    </div>
+</div>
+<!-- ------------------------------------- -->
+    <div class="container">
+      <h1>Explore Holidays By Theme</h1>
+      <p>Find your perfect getaway, tailored to your interests.</p>
+    
+      <div class="carousel-container">
+       
+        <div class="card-wrapper" id="cardWrapper">
+          <div class="card">
+            <img src="https://img.icons8.com/ios/50/safari--v1.png" alt="Safari Icon">
+            <h3><a href="Safaritrail.html">Safari Trails</a> </h3>
+            <span>Explore Now</span>
+          </div>
+          <div class="card">
+            <img src="https://img.icons8.com/ios/50/family.png" alt="Family Icon">
+            <h3><a href="FamilyRetreat.html">Family Retreat</a></h3>
+            <span>Explore Now</span>
+          </div>
+          <div class="card">
+            <img src="https://img.icons8.com/ios/50/diamond--v1.png" alt="Luxury Icon">
+            <h3><a href="Luxury.html">Luxury</a></h3>
+            <span>Explore Now</span>
+          </div>
+          <div class="card">
+            <img src="https://img.icons8.com/ios/50/city.png" alt="Weekend Icon">
+            <h3><a href="Weekend.html">Weekend</a></h3>
+            <span>Explore Now</span>
+          </div>
+          <div class="card">
+            <img src="https://images.emtcontent.com/holiday-img/home-img/hn_moon.svg" alt="Honeymoon Icon" >
+            <h3><a href="Honeymoon.html">Honeymoon</a></h3>
+            <span>Explore Now</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+
+      <!-- -------------------------------- -->
+      <div class="container">
+      <h1>Benefits of Booking With Us</h1>
+      <p class="subtitle">Discover the unrivalled benefits that promise memorable journeys all along.</p>
+     <div class="benefits-container">
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/emoji/48/beach-with-umbrella.png" alt="Customised Itineraries">
+          <h3>Customised Itineraries</h3>
+          <p>Enjoy our bespoke tour packages that can be tailored according to your preferences for personalised experience.</p>
+        </div>
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios/50/rupee.png" alt="Wallet-Friendly Prices">
+          <h3>Wallet-Friendly Prices</h3>
+          <p>Every traveller from worldwide can embark on unforgettable journeys with our unbeatable holiday package prices.</p>
+        </div>
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/color/48/fire-element--v1.png" alt="Exciting Deals">
+          <h3>Exciting Deals</h3>
+          <p>Our platform comprises perfect deals and discounts on all exclusive holiday packages to ensure value-for-money.</p>
+        </div>
+        <div class="benefit-card">
+          <img src="https://img.icons8.com/ios/50/technical-support--v1.png" alt="24/7 Support">
+          <h3>24/7 Support</h3>
+          <p>Our customer support team is always available to assist you and resolve travel-related queries instantly.</p>
+        </div>
+      </div>
+      </div>
+      <!-- ------------------------------------------------------- -->
+       <h2>Book Your Holiday With myTour</h2>
+       <p>Book Your Holiday Packages With myTour and discover a world of meticulously curated, affordable itineraries designed to meet the unique needs and budgets of every traveller. Each getaway is crafted with precision, ensuring that every aspect of your journey is seamless and memorable. Whether you're seeking adventure, relaxation, or a blend of both, our packages promise an unforgettable getaway tailored just for you. Start planning your dream vacation today and experience the perfect escape with our exceptional itineraries</p>
+       <h3>Enjoy Seamless Booking At Budget-Friendly Prices!</h3>
+       <p>Our platform's user-friendly interface simplifies the navigation of diverse trip packages, catering to various destinations, preferences, and budgets. With just a few clicks, travellers can book their ideal vacation. Whether you're dreaming of a beach escape or a mountain retreat, finding and booking your perfect getaway is straightforward and hassle-free with us, ensuring a smooth start to your travel adventure.
+        Unlock unbeatable savings on your next getaway with us, your ultimate travel companion! Discover a world of affordable packages customised to meet the diverse needs of every traveller. Embark on a mountain escape or a city adventure with our exclusive travel at competitive prices and leverage exclusive discounts, ensuring your travel is as economical as it is enjoyable. Don’t miss out on it, and book your next vacation with us to experience the perfect blend of luxury and value!</p>
+        <h3>Create Memories That Last A Lifetime!</h3>
+        <p>Book and explore your dream destinations with our exclusive itineraries. Each of our packages are carefully designed to ensure that every traveller enjoys a promising getaway. Whether you're a solo traveller, part of a group, or travelling with family, we have tailored itineraries to suit everyone. Choose from a variety of splendid tour packages and let us handle the details, guaranteeing a seamless and memorable experience. Start your adventure with myTour today and cherish every moment of your journey.</p>
+    </div>
+ <!-- ---------------------------------------------------------- -->
+ <footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                 
+                    <h2 class="footer-logo-text">myTour</h2>
+                </div>
+                <p class="footer-description">Your one-stop solution for all your travel needs. Book trains and cabs with ease and enjoy a seamless travel experience.</p>
+                <div class="social-links">
+                  
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#trains">Trains</a></li>
+                    <li><a href="#cabs">Cabs</a></li>
+                    <li><a href="#offers">Offers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Train Booking</a></li>
+                    <li><a href="#">City Rides</a></li>
+                    <li><a href="#">Outstation Cabs</a></li>
+                    <li><a href="#">Hourly Rentals</a></li>
+                    <li><a href="#">Airport Transfers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Cancellation Policy</a></li>
+                    <li><a href="#">Refund Status</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">©myTour. All rights reserved.</p>
+            <div class="payment-methods">
+                <span>We accept:</span>
+                <i class="fa fa-cc-visa"></i>
+                <i class="fa fa-cc-mastercard"></i>
+                <i class="fa fa-cc-amex"></i>
+                <i class="fa fa-cc-paypal"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+
+</body>
+</html>  

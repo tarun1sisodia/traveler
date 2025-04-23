@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Confirmation</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #f5f9ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      
+      .confirmation-container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+      }
+      
+      .checkmark {
+        font-size: 60px;
+        color: green;
+        margin-bottom: 20px;
+      }
+      
+      h1 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+      
+      p {
+        margin-bottom: 30px;
+        color: #666;
+      }
+      
+      .booking-details {
+        text-align: left;
+        margin-bottom: 30px;
+      }
+      
+      .booking-details ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .booking-details li {
+        margin-bottom: 10px;
+      }
+      
+      .buttons button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        transition: background 0.3s;
+      }
+      
+      .buttons button:hover {
+        background: #0056b3;
+      }
+      
+</style>
+<body>
+  <div class="confirmation-container">
+    <div class="checkmark">✔</div>
+    <h1>Booking Confirmed!</h1>
+    <p>Your hotel booking has been successfully completed.</p>
+
+    <div class="booking-details">
+      <h2>Booking Details</h2>
+      <ul>
+        <li><strong>Hotel Name:</strong> <span id="hotelName">Sea Breeze Resort</span></li>
+        <li><strong>Guest Name:</strong> <span id="guestName">Sanjana</span></li>
+        <li><strong>Check-in:</strong> <span id="checkIn">2025-05-01</span></li>
+        <li><strong>Check-out:</strong> <span id="checkOut">2025-05-05</span></li>
+        <li><strong>Booking ID:</strong> <span id="bookingId">HTL123456789</span></li>
+      </ul>
+    </div>
+
+    <div class="buttons">
+      <button onclick="window.print()">Print Confirmation</button>
+     <a href="MyTour.html"> <button onclick="goHome()">Return to Home</button></a>
+    </div>
+  </div>
+
+  <script>
+    // This can be dynamically set from previous booking process
+document.getElementById("hotelName").textContent = localStorage.getItem("hotelName") || "Sea Breeze Resort";
+document.getElementById("guestName").textContent = localStorage.getItem("guestName") || "Sanjana";
+document.getElementById("checkIn").textContent = localStorage.getItem("checkIn") || "2025-05-01";
+document.getElementById("checkOut").textContent = localStorage.getItem("checkOut") || "2025-05-05";
+document.getElementById("bookingId").textContent = generateBookingId();
+
+function generateBookingId() {
+  return "HTL" + Math.floor(Math.random() * 1000000000);
+}
+
+function goHome() {
+  window.location.href = "MyTour.html"; // Update this to your homepage
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    <link rel="stylesheet" href="Bus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div>   <a href="MyTour.html"><img class="logo" src="logo2-Photoroom.png"></a> </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="MyTour.html" class="active">Flight</a></li>
+                <li><a href="Hotels.html">Hotels</a></li>
+                <li><a href="Train.html">Train</a></li>
+                <li><a href="Train.html">Cabs</a></li>
+                <li><a href="Holidays.html">Holiday</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Travel Comfortably & Safely</h1>
+            <p>Book your bus tickets online and enjoy a hassle-free journey</p>
+            <a href="#booking" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="routes" class="routes">
+        <div class="container">
+            <h2>Popular Routes</h2>
+            <div class="routes-container">
+                <div class="route-card">
+                    <div class="route-info">
+                        <h3>Bengaluru</h3>
+                        <p><i class="fas fa-clock"></i> 9 hr 40 min </p>
+                        <p><i class="fas fa-rupee-sign"></i>1200</p>
+                    </div>
+                    <button class="btn-small">Select</button>
+                </div>
+                <div class="route-card">
+                    <div class="route-info">
+                        <h3>Mumbai</h3>
+                        <p><i class="fas fa-clock"></i> 33 hr</p>
+                        <p><i class="fas fa-rupee-sign"></i>3500</p>
+                    </div>
+                    <button class="btn-small">Select</button>
+                </div>
+                <div class="route-card">
+                    <div class="route-info">
+                        <h3>Delhi</h3>
+                        <p><i class="fas fa-clock"></i> 4 hr 45 min</p>
+                        <p><i class="fas fa-rupee-sign"></i>250</p>
+                    </div>
+                    <button class="btn-small">Select</button>
+                </div>
+                <div class="route-card">
+                    <div class="route-info">
+                        <h3>Chennai</h3>
+                        <p><i class="fas fa-clock"></i> 55 hr</p>
+                        <p><i class="fas fa-rupee-sign"></i>5200</p>
+                    </div>
+                    <button class="btn-small">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <h2>Bus Schedule</h2>
+            <div class="schedule-search">
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <select id="from">
+                        <option value="select departure city">Select departure city</option>
+                        <option value="bengaluru">Bengalore</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="pune">Pune</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="indore">Indore</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="goa">Goa</option>
+                        <option value="shimla">Shimla</option>
+                        <option value="agra">Agra</option>
+                        <option value="varanasi">Varanasi</option>
+                        <option value="srinagar">Srinagar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="to">To:</label>
+                    <select id="to">
+                        <option value="select destination city">Select Destination city</option>
+                        <option value="bengaluru">Bengalore</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="pune">Pune</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="indore">Indore</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="goa">Goa</option>
+                        <option value="shimla">Shimla</option>
+                        <option value="agra">Agra</option>
+                        <option value="varanasi">Varanasi</option>
+                        <option value="srinagar">Srinagar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date">
+                </div>
+                <button id="search-btn" class="btn-small">Search</button>
+            </div>
+            <div class="schedule-results">
+                <table id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Bus No.</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Schedule data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2>Book Your Ticket</h2>
+            <div class="booking-container">
+                <div class="seat-selection">
+                    <h3>Select Your Seat</h3>
+                    <div class="bus-layout">
+                        <div class="driver-area">
+                            <i class="fas fa-steering-wheel"></i>
+                        </div>
+                        <div class="seats-container" id="seats-container">
+                            <!-- Seats will be generated here -->
+                        </div>
+                    </div>
+                    <div class="seat-info">
+                        <div class="seat-type">
+                            <div class="seat available"></div>
+                            <span>Available</span>
+                        </div>
+                        <div class="seat-type">
+                            <div class="seat selected"></div>
+                            <span>Selected</span>
+                        </div>
+                        <div class="seat-type">
+                            <div class="seat booked"></div>
+                            <span>Booked</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="passenger-details">
+                    <h3>Passenger Details</h3>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="selected-seats">Selected Seats:</label>
+                            <input type="text" id="selected-seats" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="total-price">Total Price:</label>
+                            <input type="text" id="total-price" readonly>
+                        </div>
+                        <button type="submit" class="btn">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Bus Terminal, Transport City, TC 12345</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@myTour.com</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="contact-name">Name:</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email:</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject:</label>
+                            <input type="text" id="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message:</label>
+                            <textarea id="contact-message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-bus"></i>myTour</h2>
+                    <p>Your trusted partner for bus travel</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#routes">Routes</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#booking">Book Tickets</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Subscribe to Newsletter</h3>
+                    <form>
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit" class="btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© myTour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Bus.js"></script>
+</body>
+</html>
